@@ -1,2 +1,9 @@
 # Project exclude paths
 /target/
+
+#folders
+.sberstack
+.idea
+
+#files
+settings.xml

@@ -12,11 +12,6 @@ import java.util.List;
 public class MyController {
 
     List<MyObject> objectList = new ArrayList<>();
-//
-//    @RequestMapping(method = RequestMethod.GET)
-//    public String defaultMethod() {
-//        return "defaultMethod";
-//    }
 
     @ApiOperation("Получение всех объектов")
     @RequestMapping(method = RequestMethod.GET, value = "/obj")
@@ -36,14 +31,5 @@ public class MyController {
         objectList.add(myobject);
         return myobject;
     }
-
-
-//    @Operation(description = "Аутентифицировать пользователя", summary = "Аутентифицировать пользователя")
-//    @SecurityRequirements
-//    //@ApiResponse(responseCode = SUCCESS_RESPONSE_CODE, description = "Токен аутентификации")
-//    @RequestMapping(method = RequestMethod.GET,value = "/hello")
-//    public @ResponseBody String hello(){
-//        return "hello";
-//    }
 
 }
