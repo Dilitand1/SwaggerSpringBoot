@@ -1,0 +1,6 @@
+server:
+  port: 8666
+
+logging:
+  level:
+    ru.sbrf.mt.analyzer.service: DEBUG
