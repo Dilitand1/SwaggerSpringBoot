@@ -2,6 +2,7 @@ package myapp.controller;
 
 import io.swagger.annotations.*;
 import myapp.model.MyObject;
+import myapp.service.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +17,8 @@ import java.util.List;
 @RequestMapping("/mycontr")
 public class MyController {
 
-    //@Autowired
-    //FeignService feignService;
+    @Autowired
+    FeignService feignService;
 
     List<MyObject> objectList = new ArrayList<>();
 
@@ -29,18 +30,15 @@ public class MyController {
     @ApiOperation("Взаимодействие с другим апи через FeignClient")
     @GetMapping("/feign")
     public String feign() {
-        RestTemplate template = new RestTemplate();
-        String feignResourceUrl = "http://127.0.0.1:8777/feign";
-        String result = template.getForObject(feignResourceUrl,String.class);
-        return result;
+        return feignService.getFeignR();
     }
 
     @ApiOperation("Обычное взаимодействие с другим апи")
     @GetMapping("/notFeign")
     public String notFeign() {
         RestTemplate template = new RestTemplate();
-        String feignResourceUrl = "http://127.0.0.1:8777/feign";
-        String result = template.getForObject(feignResourceUrl,String.class);
+        String notFeignResourceUrl = "http://127.0.0.1:8778/feign/notFeign";
+        String result = template.getForObject(notFeignResourceUrl,String.class);
         return result;
     }
 
