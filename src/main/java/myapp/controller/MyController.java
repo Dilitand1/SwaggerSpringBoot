@@ -1,6 +1,7 @@
 package myapp.controller;
 
 import io.swagger.annotations.*;
+import lombok.extern.slf4j.Slf4j;
 import myapp.model.MyObject;
 import myapp.service.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.util.List;
 @RestController
 @Api("@Api аннотация MyController")
 @RequestMapping("/mycontr")
+@Slf4j
 public class MyController {
 
     @Autowired
@@ -30,6 +32,7 @@ public class MyController {
     @ApiOperation("Взаимодействие с другим апи через FeignClient")
     @GetMapping("/feign")
     public String feign() {
+        log.info("feign запрос");
         return feignService.getFeignR();
     }
 

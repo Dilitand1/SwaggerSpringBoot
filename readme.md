@@ -1,1 +1,1 @@
-Example SpringBootController with swagger-ui and Feign client.
+Example SpringBootController with swagger-ui, Feign client and interceptors
